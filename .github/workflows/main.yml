@@ -1,0 +1,23 @@
+name: test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        dokku-host: ${{ secrets.DOKKU_HOST }}
+        app-name: myapp
+        db-name: mydb
+  destroy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        dokku-host: ${{ secrets.DOKKU_HOST }}
+        app-name: myapp
+        db-name: mydb
+        destroy: true

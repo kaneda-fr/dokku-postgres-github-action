@@ -67,6 +67,8 @@ The S3 bucket name used for backup. **Required** if backup enabled.
 
 The S3 bucket name used for backup. **Required** if backup enabled.
 
+**backup scheduling** is currently not working (seems there is no way to escape spaces when remote executing into a ssh command. )
+
 ## Example
 
 ```
@@ -82,9 +84,10 @@ steps:
         aws-access-key-id: 'AKIAIOSFODNN7EXAMPLE'
         aws-secret-access-key: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
         s3-data-load: 's3://mybucket/database.dump'
-        backup-activation: 'true'
-        backup-s3-bucket: 'my-s3-bucket'
-        backup-schedule: "0 3 * * *"
+        # backup schedule not implemented yet.
+        #backup-activation: 'true'
+        #backup-s3-bucket: 'my-s3-bucket'
+        #backup-schedule: "0 3 * * *"
 ```
 ## TODO
 * exit if an operation fails

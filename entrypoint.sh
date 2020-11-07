@@ -24,6 +24,10 @@ export AWS_DEFAULT_REGION=$AWS_REGION
 mkdir -p ~/.ssh
 eval `ssh-agent -s`
 ssh-add - <<< "$SSH_PRIVATE_KEY"
+if [ $? -ne 0 ] ; then
+  exit 3
+fi
+
 ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 
 # Push to Dokku git repository

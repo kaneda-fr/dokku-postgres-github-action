@@ -2,8 +2,8 @@ name: test
 on: workflow_dispatch
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  create:
+    runs-on: [ubuntu-latest, self-hosted, dev]
     steps:
     - uses: ./
       with:
@@ -11,8 +11,14 @@ jobs:
         dokku-host: ${{ secrets.DOKKU_HOST }}
         app-name: myapp
         db-name: mydb
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-central-1
+        s3-data-load: "s3://enloya-db/next.pgdump"
+
   destroy:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, self-hosted, dev]
+    needs: [create]
     steps:
     - uses: ./
       with:

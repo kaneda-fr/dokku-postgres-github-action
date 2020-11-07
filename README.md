@@ -40,6 +40,10 @@ Destroy the DB if set to if set to `true`. If not specified, `false` will be use
 
 AWS access key id. **Required** if data load or backup are enabled.
 
+### aws-region
+
+AWS region. **Required** if data load or backup are enabled.
+
 ### aws-secret-access-key
 
 AWS secret access key. **Required** if data load or backup are enabled.
@@ -57,6 +61,7 @@ The backup activation to an existing S3 bucket:
 ### backup-s3-bucket
 
 The S3 bucket name used for backup. **Required** if backup enabled.
+*Use the bucket name without s3://*
 
 ### backup-s3-schedule
 

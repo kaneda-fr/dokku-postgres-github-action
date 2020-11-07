@@ -24,9 +24,12 @@ inputs:
   destroy:
     description: "The value of the environment variable to set in dokku config (Default: false)"
     required: true
-    default: "false"
+    default: false
   aws-access-key-id:
     description: "AWS access key id"
+    required: false
+  aws-region:
+    description: "AWS Region"
     required: false
   aws-secret-access-key:
     description: "AWS secret access key"
@@ -55,6 +58,7 @@ runs:
     - ${{ inputs.destroy }}
     - ${{ inputs.aws-access-key-id }}
     - ${{ inputs.aws-secret-access-key }}
+    - ${{ inputs.aws-region }}
     - ${{ inputs.s3-data-load }}
     - ${{ inputs.backup-s3 }}
     - ${{ inputs.backup-s3-bucket }}

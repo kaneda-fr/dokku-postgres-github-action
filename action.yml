@@ -1,6 +1,6 @@
 name: "Manage PostgreSQL database for your Dokku Application"
 author: "Sébastien Lacoste-Seris"
-description: "This action creates a PostgreSQL DB for your Dokku application, load data from S3 and can also be used to destroy the database."
+description: "You can use this action to create the DB for your Dokku application, load data from S3 and destroy the database."
 branding:
   icon: "database"
   color: "green"
